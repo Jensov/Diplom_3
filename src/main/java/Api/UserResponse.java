@@ -1,4 +1,4 @@
-package User;
+package Api;
 
 public class UserResponse {
     private String accessToken;

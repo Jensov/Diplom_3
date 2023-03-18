@@ -5,7 +5,7 @@ import com.github.javafaker.Faker;
 public class UserGenerator {
     static Faker faker = new Faker();
 
-    public LoginUser random() {
-        return new LoginUser(faker.name().username() + "@yandex.ru", faker.animal().name());
+    public RegistrationUser random() {
+        return new RegistrationUser(faker.name().username() + "@yandex.ru", faker.internet().password(), faker.name().name());
     }
 }

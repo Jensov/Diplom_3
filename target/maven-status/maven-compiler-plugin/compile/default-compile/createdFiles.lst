@@ -1,0 +1,12 @@
+User\RegistrationUser.class
+Pages\ForgotPasswordPage.class
+Pages\PersonalAccountPage.class
+User\LoginUser.class
+User\UserGenerator.class
+Pages\ConstructorPage.class
+Api\User.class
+Pages\RegistrationPage.class
+Api\UserRequest.class
+Pages\LoginPage.class
+Pages\HomePage.class
+Api\UserResponse.class

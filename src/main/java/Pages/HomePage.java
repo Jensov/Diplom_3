@@ -2,6 +2,11 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage {
     private final WebDriver driver;
@@ -18,6 +23,13 @@ public class HomePage {
     }
 
     public void clickPersonalAccountButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(personalAccountButton));
         driver.findElement(personalAccountButton).click();
+    }
+
+
+    public WebElement getCreateOrderButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(createOrderButton));
+        return driver.findElement(createOrderButton);
     }
 }

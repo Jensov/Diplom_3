@@ -1,34 +1,46 @@
 package Testing;
 
 import Pages.HomePage;
-import org.junit.After;
-import org.junit.Before;
+import Pages.LoginPage;
+import Pages.RegistrationPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
-public class RegistrationTests {
-    private WebDriver driver;
 
-    @Before
-    public void beforeTest() {
-        // драйвер для браузера Chrome
-        ChromeOptions options = new ChromeOptions();
-        driver = new ChromeDriver(options);
+public class RegistrationTests extends BaseTests {
 
-        // переход на страницу тестового приложения
-        driver.get("https://stellarburgers.nomoreparties.site/");
-    }
+    @Test
+    @DisplayName("Check Registration")
+    @Description("Проверяется регистрация пользователя")
+    public void RegistrationTest() {
 
-    @After
-    public void tearDown() {
-        driver.quit(); // закрываем браузер
+        HomePage homePage = new HomePage(driver);
+        homePage.clickPersonalAccountButton();
+
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.clickRegistrationButton();
+
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+        registrationPage.registration(user.getName(), user.getEmail(), user.getPassword());
+        isUserRegistered = true;
+        loginPage.getInputButton().isDisplayed();
     }
 
     @Test
-    public void Registration() {
+    @DisplayName("Check Registration With Incorrect Password")
+    @Description("Проверяется регистрация пользователя с невалидным паролем")
+    public void RegistrationWithIncorrectPasswordTest() {
 
+        HomePage homePage = new HomePage(driver);
+        homePage.clickPersonalAccountButton();
 
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.clickRegistrationButton();
+
+        user.setPassword("123");
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+        registrationPage.registration(user.getName(), user.getEmail(), user.getPassword());
+        registrationPage.getErrorMessage();
     }
 }
