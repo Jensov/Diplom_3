@@ -84,12 +84,27 @@ public class TransitionTests extends BaseTests {
     }
 
     @Test
-    @DisplayName("Check Transition To Section In Constructor Page")
-    @Description("Проверяются переходы в разделы: Соусы, Начинки, Булки")
-    public void transitionToSection() {
+    @DisplayName("Check Transition To Section Toppings In Constructor Page")
+    @Description("Проверяется переход в раздел Начинки")
+    public void transitionToSectionToppings() throws InterruptedException {
         ConstructorPage constructorPage = new ConstructorPage(driver);
         constructorPage.clickToppings();
+    }
+
+    @Test
+    @DisplayName("Check Transition To Section Sauce In Constructor Page")
+    @Description("Проверяются переход в раздел Соусы")
+    public void transitionToSectionSauce() {
+        ConstructorPage constructorPage = new ConstructorPage(driver);
         constructorPage.clickSauce();
+    }
+
+    @Test
+    @DisplayName("Check Transition To Section Buns In Constructor Page")
+    @Description("Проверяется переход в раздел Булки")
+    public void transitionToSectionBuns() throws InterruptedException {
+        ConstructorPage constructorPage = new ConstructorPage(driver);
+        constructorPage.clickToppings();
         constructorPage.clickBuns();
     }
 }

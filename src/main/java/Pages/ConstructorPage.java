@@ -26,8 +26,9 @@ public class ConstructorPage {
         getBunsHeader();
     }
 
-    public void clickToppings() {
+    public void clickToppings() throws InterruptedException {
         getToppings().click();
+        Thread.sleep(5000l);
         getToppingsHeader();
     }
 
