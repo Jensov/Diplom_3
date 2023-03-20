@@ -16,20 +16,21 @@ public class ConstructorPage {
     public ConstructorPage(WebDriver driver) {
         this.driver = driver;
     }
+
     public void clickSauce() {
         getSauce().click();
-        getSauceHeader();
+        checkSauceHeader();
     }
 
     public void clickBuns() {
         getBuns().click();
-        getBunsHeader();
+        checkBunsHeader();
     }
 
     public void clickToppings() throws InterruptedException {
         getToppings().click();
-        Thread.sleep(5000l);
-        getToppingsHeader();
+        Thread.sleep(500L);
+        checkToppingsHeader();
     }
 
     public WebElement getSauce() {
@@ -44,15 +45,18 @@ public class ConstructorPage {
         return driver.findElement(toppings);
     }
 
-    public WebElement getToppingsHeader() {
-        return driver.findElement(toppingsHeader);
+    public void checkSauceHeader() {
+        driver.findElement(sauce).isSelected();
+        driver.findElement(sauceHeader).isDisplayed();
     }
 
-    public WebElement getBunsHeader() {
-        return driver.findElement(bunsHeader);
+    public void checkBunsHeader() {
+        driver.findElement(buns).isSelected();
+        driver.findElement(bunsHeader).isDisplayed();
     }
 
-    public WebElement getSauceHeader() {
-        return driver.findElement(sauceHeader);
+    public void checkToppingsHeader() {
+        driver.findElement(toppings).isSelected();
+        driver.findElement(toppingsHeader).isDisplayed();
     }
 }
