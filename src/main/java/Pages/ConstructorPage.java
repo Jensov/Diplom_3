@@ -29,8 +29,8 @@ public class ConstructorPage {
 
     public void clickToppings() throws InterruptedException {
         getToppings().click();
-        Thread.sleep(500L);
         checkToppingsHeader();
+                Thread.sleep(500L);
     }
 
     public WebElement getSauce() {
@@ -46,17 +46,17 @@ public class ConstructorPage {
     }
 
     public void checkSauceHeader() {
-        driver.findElement(sauce).isSelected();
+        driver.findElement(By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']//span[text()='Соусы']")).isDisplayed();
         driver.findElement(sauceHeader).isDisplayed();
     }
 
     public void checkBunsHeader() {
-        driver.findElement(buns).isSelected();
+        driver.findElement(By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']//span[text()='Булки']")).isDisplayed();
         driver.findElement(bunsHeader).isDisplayed();
     }
 
     public void checkToppingsHeader() {
-        driver.findElement(toppings).isSelected();
+        driver.findElement(By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']//span[text()='Начинки']")).isDisplayed();
         driver.findElement(toppingsHeader).isDisplayed();
     }
 }
